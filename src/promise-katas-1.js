@@ -85,7 +85,11 @@ const returnList = () => {
 // Example:
 // anError() rejects to "An error occurred"
 
-const anError = () => { };
+const anError = () => {
+    return new Promise((res, rej) => {
+        rej("An error occurred");
+    })
+};
 
 // 7 Create a function that returns a promise which returns 666 if it rejects
 // Example:
