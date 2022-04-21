@@ -57,7 +57,7 @@ describe('returnBob', () => {
 });
 
 describe('returnList', () => {
-    xit("returns a promise that resolves to ['eggs', 'apples', 'milk', 'bread']", (done) => {
+    it("returns a promise that resolves to ['eggs', 'apples', 'milk', 'bread']", (done) => {
         returnList()
             .then(value => {
                 expect(value).to.deep.equal(['eggs', 'apples', 'milk', 'bread']);
