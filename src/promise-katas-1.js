@@ -63,7 +63,12 @@ const returnString = () => {
 // Example:
 // returnBob() resolves to the value { name: 'Bob' }
 
-const returnBob = () => { };
+const returnBob = () => {
+    return new Promise((res, rej) => {
+        res({ name: 'Bob' });
+        rej(new Error("The promise is expected to resolve with { name: 'Bob' }!"));
+    });
+};
 
 // 5 Create a function that returns a promise which returns an array with 4 strings of 'eggs', 'apples', 'milk' and 'bread' if it resolves succesfully
 // Example:

@@ -46,7 +46,7 @@ describe('returnString', () => {
 });
 
 describe('returnBob', () => {
-    xit("returns a promise that resolves to { name: 'Bob' }", (done) => {
+    it("returns a promise that resolves to { name: 'Bob' }", (done) => {
         returnBob()
             .then(value => {
                 expect(value).to.deep.equal({ name: 'Bob' });
