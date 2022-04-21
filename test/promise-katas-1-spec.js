@@ -78,7 +78,7 @@ describe('anError', () => {
 });
 
 describe('theNumberOfTheBeast', () => {
-    xit('returns a promise that returns 666 when it rejects', (done) => {
+    it('returns a promise that returns 666 when it rejects', (done) => {
         theNumberOfTheBeast()
             .catch(value => {
                 expect(value).to.equal(666);

@@ -78,7 +78,7 @@ const returnList = () => {
     return new Promise((res, rej) => {
         res(['eggs', 'apples', 'milk', 'bread']);
         rej(new Error("The promise is expected to resolve with ['eggs', 'apples', 'milk', 'bread']!"));
-    })
+    });
 };
 
 // 6 Create a function that returns a promise which returns "An error occurred" if it rejects
@@ -88,14 +88,18 @@ const returnList = () => {
 const anError = () => {
     return new Promise((res, rej) => {
         rej("An error occurred");
-    })
+    });
 };
 
 // 7 Create a function that returns a promise which returns 666 if it rejects
 // Example:
 // theNumberOfTheBeast() rejects to the value 666
 
-const theNumberOfTheBeast = () => { };
+const theNumberOfTheBeast = () => {
+    return new Promise((res, rej) => {
+        rej(666);
+    })
+};
 
 // 8 Create a function that returns a promise which returns an object with a key of error and value of 500 if it rejects
 // Example:
