@@ -8,8 +8,8 @@ Look at the Promise documentation on MDN
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 You can create a new promise by using the Promise constructor. We use the 'new' keyword,
-followed by an uppercase 'Promise'. Invoke the Promise constructor like this 'Promise()' and pass in a callback function 
-'Promise(() => {}). 
+followed by an uppercase 'Promise'. Invoke the Promise constructor like this 'Promise()' 
+and pass in a callback function 'Promise(() => {}). 
 The callback function in the Promise constructor always has a resolve function as the first
 parameter and a reject function as the second parameter, 'Promise((resolve, reject) => {}).
 Sometimes we shorten this to 'res' for 'resolve' and 'rej' for 'reject'. The name
@@ -33,7 +33,9 @@ Remember, a Promise can only resolve successfully, or reject when it fails to re
 // when we call returnPromise like 'returnPromise()' we expect our function to use the 
 // 'resolve' Promise callback function in order to resolve successfully
 
-const returnPromise = () => { };
+const returnPromise = (resolve, reject) => {
+    return new Promise(resolve => resolve (new Error('The promise is expected to resolve')));
+};
 
 // 2 Create a function that returns a promise which returns 10 if it resolves succesfully
 // Example:
