@@ -35,7 +35,7 @@ describe('returnTen', () => {
 });
 
 describe('returnString', () => {
-    xit("returns a promise that resolves to 'string'", (done) => {
+    it("returns a promise that resolves to 'string'", (done) => {
         returnString()
             .then(value => {
                 expect(value).to.equal('string');

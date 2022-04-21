@@ -46,22 +46,18 @@ const returnTen = () => {
         res(10);
         rej(new Error('The promise is expected to resolve with 10!'));
     });
-    };
-    
-    // return new Promise(resolve => resolve (new Error('The promise is expected to resolve with 10!')));
-    
-
-
-// returnTen
-// .then((value) => {
-//     return(10);
-// });
+};
 
 // 3 Create a function that returns a promise which returns 'string' if it resolves succesfully
 // Example:
 // returnString() resolves to the value 'string'
 
-const returnString = () => { };
+const returnString = () => {
+    return new Promise((res, rej) => {
+        res('string');
+        rej(new Error("The promise is expected to resolve with 'string'!"));
+    });
+};
 
 // 4 Create a function that returns a promise which returns an object with a key of name and value of 'Bob' if it resolves succesfully
 // Example:
