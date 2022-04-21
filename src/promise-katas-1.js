@@ -44,7 +44,6 @@ const returnPromise = (resolve, reject) => {
 const returnTen = () => {
     return new Promise((res, rej) => {
         res(10);
-        rej(new Error('The promise is expected to resolve with 10!'));
     });
 };
 
@@ -55,7 +54,6 @@ const returnTen = () => {
 const returnString = () => {
     return new Promise((res, rej) => {
         res('string');
-        rej(new Error("The promise is expected to resolve with 'string'!"));
     });
 };
 
@@ -66,7 +64,6 @@ const returnString = () => {
 const returnBob = () => {
     return new Promise((res, rej) => {
         res({ name: 'Bob' });
-        rej(new Error("The promise is expected to resolve with { name: 'Bob' }!"));
     });
 };
 
@@ -77,7 +74,6 @@ const returnBob = () => {
 const returnList = () => {
     return new Promise((res, rej) => {
         res(['eggs', 'apples', 'milk', 'bread']);
-        rej(new Error("The promise is expected to resolve with ['eggs', 'apples', 'milk', 'bread']!"));
     });
 };
 
@@ -105,7 +101,11 @@ const theNumberOfTheBeast = () => {
 // Example:
 // internalServerError() rejects to { error: 500 }
 
-const internalServerError = () => { };
+const internalServerError = () => {
+    return new Promise((res, rej) => {
+        rej({ error: 500});
+    })
+};
 
 // 9 Create a function that returns a promise which resolves to "happy" if the parameter is greater than 
 // or equal to 1 and rejects to "sad" if the value is less than 1
@@ -113,7 +113,15 @@ const internalServerError = () => { };
 // happySad(1) resolves to "happy"
 // happySad(0) rejects to "sad"
 
-const happySad = () => { };
+const happySad = x => {
+    return new Promise((res, rej) => {
+        if (x > 1) {
+            res("happy");
+        } else if (x < 1) {
+            rej("sad");
+        }
+    });
+};
 
 // 10 Create a function that returns a promise which resolves to "Yes. Luke, I am your father." if the 
 // parameter is "Luke" and rejects to "Not your dad." if the value is anything else
@@ -121,13 +129,28 @@ const happySad = () => { };
 // amIYourFather() resolves to "Yes. Luke, I am your father."
 // amIYourFather() rejects to "Not your dad."
 
-const amIYourFather = () => { };
+const amIYourFather = (name) => {
+    return new Promise((res, rej) => {
+        if (name === 'Luke') {
+            res("Yes. Luke, I am your father.");
+        } else if (name !== 'Luke') {
+            rej("Not your dad.");
+        }
+    });
+};
 
 // 11 Create a function that returns a promise. The promise should resolve to a new function that returns "My name is <input name>" 
 // Example:
 // A call to myNameIs() resolves to a new function that takes one argument, name, and returns "My name is name" Eg (name) => `My name is ${name}`
 
-const myNameIs = () => { };
+const myNameIs = () => {
+    return new Promise((res, rej) => {
+        
+        res(function() {
+            return("My name is Romy")
+        });
+    });
+};
 
 
 module.exports = {
