@@ -23,7 +23,7 @@ describe('cat', () => {
 });
 
 describe('dog', () => {
-    xit('returns the naughiest dog', async () => {
+    it('returns the naughiest dog', async () => {
         expect(await dog()).to.deep.equal({name: "Mutley", naughty: 10});
     })
 });
