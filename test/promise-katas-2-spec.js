@@ -11,13 +11,13 @@ const {
 const { expect } = require("chai");
 
 describe('food', () => {
-    xit('returns the correct food', async () => {
+    it('returns the correct food', async () => {
         expect(await food()).to.equal("Cheese");
     })
 });
 
 describe('cat', () => {
-    xit('returns the correct ordered list of cats', async () => {
+    it('returns the correct ordered list of cats', async () => {
         expect(await cat()).to.deep.equal(["Bandit", "Berry", "Puss in boots", "Smokey"]);
     })
 });

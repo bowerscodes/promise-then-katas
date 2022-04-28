@@ -25,12 +25,20 @@ fetch("joke", "question").then(<insert your callback function>)
 // 1 Create a function that uses the fetch function to make a request to the "food" URL and returns
 // the data - expected return value "Cheese" of type String
 
-const food = () => {};
+const food = () => {
+    return fetch("food").then(fetchResult => {
+        return fetchResult.data
+    });
+};
 
 // 2 Create a function that uses the fetch function to make a request to the "cats" URL and returns
 // a list of cats in alphabetical order - expected return value ["Bandit", "Berry", "Puss in boots", "Smokey"] of type Array
 
-const cat = () => {};
+const cat = () => {
+    return fetch("cat").then(fetchResult => {
+        return (fetchResult.data.cats).sort();
+    })
+};
 
 // 3 Create a function that uses the fetch function to make a request to the "dogs" URL and returns
 // the naughtiest dog - expected return value {name: "Mutley", naughty: 10} of type Object
