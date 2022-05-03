@@ -29,7 +29,7 @@ describe('dog', () => {
 });
 
 describe('joke', () => {
-    xit('returns a joke, waits 1000ms and then returns the answer', async () => {
+    it('returns a joke, waits 1000ms and then returns the answer', async () => {
         expect(await joke()).to.deep.equal({ 
             question: "Why did the scarecrow win the Nobel Prize?", 
             answer: "Because he was out-standing in his field."
