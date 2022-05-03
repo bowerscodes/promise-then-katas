@@ -56,14 +56,25 @@ const dog = () => {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 //
 
-const joke = () => {
-    return fetch("joke").then(() => {
-      return {
-        question: "Why did the scarecrow win the Nobel Prize?",
-        answer: "Because he was out-standing in his field.",
-      };
-    });
-  };
+// 2 solutions: 1 involving Promise.all
+const joke = () =>
+Promise.all([fetch("jokes", "question"), fetch("jokes", "answer")]).then(
+  ([call, response]) => {
+    return { question: call.joke, answer: response.answer };
+  }
+);
+
+// const joke = () => {
+//     return fetch("joke").then(() => {
+//       return {
+//         question: "Why did the scarecrow win the Nobel Prize?",
+//         answer: "Because he was out-standing in his field.",
+//       };
+//     });
+//   };
+
+
+
 
 module.exports = {
     food,
